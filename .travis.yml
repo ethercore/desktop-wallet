@@ -1,0 +1,84 @@
+language: node_js
+node_js: '8'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - 'interface/.meteor'
+
+sudo: required
+
+branches:
+  only:
+    - develop
+    - master
+
+matrix:
+  include:
+    # WINDOWS cross-built from linux
+    - os: linux
+      dist: trusty
+      env:
+          - GULP_PLATFORM=win
+      addons:
+        apt:
+          packages:
+            - icnsutils
+            - graphicsmagick
+            - xz-utils
+            - nsis
+            - g++-multilib
+          sources:
+            - mono
+      before_install:
+        - sudo dpkg --add-architecture i386 && sudo add-apt-repository ppa:ubuntu-wine/ppa -y
+        - sudo apt-get update -q
+        - sudo apt-get install --no-install-recommends -y mono-devel ca-certificates-mono wine1.8
+
+    # LINUX
+    - os: linux
+      dist: trusty
+      env:
+          - GULP_PLATFORM=linux
+      addons:
+        apt:
+          packages:
+            - icnsutils
+            - graphicsmagick
+            - xz-utils
+            - gcc-multilib
+            - g++-multilib
+
+    # MAC
+    - os: osx
+      osx_image: xcode8.3  # currently xcode8.1+ doesn't support electron-builder macOS code-signing (https://github.com/electron-userland/electron-builder/issues/820#issuecomment-267777060)
+      env:
+          - GULP_PLATFORM=mac
+      before_install:
+          - npm install -g yarn  # macOS xcode8 image doesn't natively support yarn yet
+
+  allow_failures:
+  - os: osx
+
+  fast_finish: true
+
+
+install:
+  - echo $PATH
+  - PATH=$PATH:$HOME/.meteor && curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/1390e0f96162d0d70fc1e60a6b0f4f891a0e8f42/configure.sh | /bin/sh
+  - export PATH=$PATH:`yarn global bin`
+  - yarn global add gulp-cli meteor-build-client electron@1.8.4
+  - yarn
+
+script:
+  # disable macOS code-signing (production certificate)
+  - if [[ $GULP_PLATFORM != "mac" ]]; then unset CSC_LINK CSC_KEY_PASSWORD; fi
+
+ # build wallet
+  - travis_wait 60 gulp --wallet --$GULP_PLATFORM
+
+  # debug purposes - see what builds were successfully created
+  - ls -la ~/build/ethercore/desktop-wallet/dist_wallet/release
+
+after_success:
+  - gulp upload-queue --wallet --$GULP_PLATFORM
