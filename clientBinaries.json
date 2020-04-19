@@ -1,14 +1,14 @@
 {
     "clients": {
         "Geth": {
-            "version": "1.9.9",
+            "version": "1.10.0",
             "platforms": {
                 "mac": {
                     "x64": {
                         "download": {
-                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.9.9/ethercore-geth-linux-v1.9.9.tar.gz",
+                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.10.0/ethercore-geth-linux-v1.10.0.tar.gz",
                             "type": "tar",
-                            "md5": "b164ca5753608d8e3686d2ca15f21656",
+                            "md5": "7388ffb6d8e3d36a9ba850eb4349c210",
                             "bin": "build/bin/geth"
                         },
                         "bin": "geth",
@@ -19,7 +19,7 @@
                                 ],
                                 "output": [
                                     "Geth-EtherCore",
-                                    "1.9.9"
+                                    "1.10.0"
                                 ]
                             }
                         }
@@ -28,9 +28,9 @@
                 "linux": {
                     "x64": {
                         "download": {
-                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.9.9/ethercore-geth-osx-v1.9.9.tar.gz",
+                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.10.0/ethercore-geth-osx-v1.10.0.tar.gz",
                             "type": "tar",
-                            "md5": "ceba564fd2fb4a9271f7577f73425efd",
+                            "md5": "e8dafbe8914677703f195b0c41d774a9",
                             "bin": "build/bin/geth"
                         },
                         "bin": "geth",
@@ -41,7 +41,7 @@
                                 ],
                                 "output": [
                                     "Geth-EtherCore",
-                                    "1.9.9"
+                                    "1.10.0"
                                 ]
                             }
                         }
@@ -50,10 +50,10 @@
                 "win": {
                     "x64": {
                         "download": {
-                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.9.9/mist-win-geth.zip",
+                            "url": "https://github.com/ethercore/go-ethercore/releases/download/v1.10.0/ethercore-geth-win64-v1.10.0.zip",
                             "type": "zip",
-                            "md5": "bdd338b990c53cccb9885c0e62fde6c6",
-                            "bin": "build\\bin\\geth.exe"
+                            "md5": "83f6e9342605d116ed4d3ac5f13644bc",
+                            "bin": "geth.exe"
                         },
                         "bin": "geth.exe",
                         "commands": {
@@ -63,7 +63,7 @@
                                 ],
                                 "output": [
                                     "Geth-EtherCore",
-                                    "1.9.9"
+                                    "1.10.0"
                                 ]
                             }
                         }
