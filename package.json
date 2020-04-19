@@ -1,8 +1,8 @@
 {
   "name": "Mist",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "license": "GPL-3.0",
-  "author": "EtherCore Contributor <info@ethercore.org>, Ethereum Mist Team <mist@ethereum.org>",
+  "author": "EtherCore Contributor <info@ethercore.io>, Ethereum Mist Team <mist@ethereum.org>",
   "repository": {
     "type": "git",
     "url": "https://github.com/ethercore/desktop-wallet.git"

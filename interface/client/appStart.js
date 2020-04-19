@@ -29,8 +29,8 @@ mistInit = function() {
 
       Tabs.insert({
         _id: 'browser',
-        url: 'https://ethercore.org',
-        redirect: 'https://ethercore.org',
+        url: 'https://ethercore.io',
+        redirect: 'https://ethercore.io',
         position: 0
       });
     } else {
@@ -47,8 +47,8 @@ mistInit = function() {
       { _id: 'wallet' },
       {
         $set: {
-          url: 'https://ethercore.org',
-          redirect: 'https://ethercore.org',
+          url: 'https://ethercore.io',
+          redirect: 'https://ethercore.io',
           position: 1,
           permissions: {
             admin: true

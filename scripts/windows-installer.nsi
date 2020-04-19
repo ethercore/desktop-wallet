@@ -29,7 +29,7 @@ RequestExecutionLevel admin
 !define GROUPNAME "Ethereum"
 !define HELPURL "https://github.com/ethercore/desktop-wallet/releases/issues"
 !define UPDATEURL "https://github.com/ethercore/desktop-wallet/releases"
-!define ABOUTURL "https://ethercore.org"
+!define ABOUTURL "https://ethercore.io"
 !define /date NOW "%Y%m%d"
 
 ## These must be integers and can be set on the command line by NSIS with "/DMAJORVERSION=0 /DMINORVERSION=8 /DBUILDVERSION=7"
